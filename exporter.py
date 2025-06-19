@@ -4,6 +4,8 @@ import json
 def export_to_json(log_by_trace, retry_timestamps, retry_pattern, output_path="summary_output/log_summary.json"):
     summary = {}  # Initialize the summary dictionary
 
+    print(log_by_trace)
+
     for trace_id, lines in log_by_trace.items():
         trace_summary = {
             "errors": [],

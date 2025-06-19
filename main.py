@@ -30,27 +30,32 @@ def parse_timestamp(line):
 
 
 def analyze_log(file_path):
-    """Read log lines and group by Trace ID, collecting retry times."""
-    current_trace_id = "unassigned"
+    current_trace_id = None
+    buffer = []
 
     with open(file_path, 'r') as file:
         for line in file:
             line = line.strip()
 
-            # Look for new trace ID
+            # Always buffer lines — assume they belong to the next Trace ID
+            buffer.append(line)
+
+            # Check for trace ID in this line
             trace_match = trace_pattern.search(line)
             if trace_match:
                 current_trace_id = trace_match.group(1)
 
-            # Only collect logs after trace ID is known
-            if current_trace_id != "unassigned":
-                log_by_trace[current_trace_id].append(line)
+                # Assign all buffered lines to this trace
+                for buffered_line in buffer:
+                    log_by_trace[current_trace_id].append(buffered_line)
 
-                # Track retry timestamps
-                if retry_pattern.search(line):
-                    ts = parse_timestamp(line)
-                    if ts:
-                        retry_timestamps[current_trace_id].append(ts)
+                    if retry_pattern.search(buffered_line):
+                        ts = parse_timestamp(buffered_line)
+                        if ts:
+                            retry_timestamps[current_trace_id].append(ts)
+
+                # Clear buffer for the next session
+                buffer = []
 
 # --- Summary Report --- #
 
