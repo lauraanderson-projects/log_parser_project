@@ -1,0 +1,25 @@
+{
+  "abc123": {
+    "errors": [
+      "2025-06-18T10:02:00.711Z [ERROR] Connection refused"
+    ],
+    "retries": [],
+    "info": [
+      "2025-06-18T10:01:24.593Z [INFO] Trace ID: abc123",
+      "2025-06-18T10:02:00.123Z [INFO] Starting sync..."
+    ],
+    "debug": [
+      "2025-06-18T10:02:00.501Z [DEBUG] Sending GET https://api.example.com/metrics"
+    ],
+    "retry_analysis": []
+  },
+  "def456": {
+    "errors": [],
+    "retries": [],
+    "info": [
+      "2025-06-18T10:02:01.000Z [INFO] Trace ID: def456"
+    ],
+    "debug": [],
+    "retry_analysis": []
+  }
+}
