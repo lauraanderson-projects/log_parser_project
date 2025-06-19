@@ -1,0 +1,11 @@
+2025-06-18T10:01:23.456Z [INFO] Starting sync...
+2025-06-18T10:01:24.102Z [DEBUG] Sending GET https://api.example.com/data
+2025-06-18T10:01:24.304Z [ERROR] Request failed with status 503
+2025-06-18T10:01:24.305Z [ERROR] Exception: TimeoutError
+2025-06-18T10:01:24.306Z [INFO] Retry 1 in 5 seconds
+2025-06-18T10:01:24.593Z [INFO] Trace ID: abc123
+
+2025-06-18T10:02:00.123Z [INFO] Starting sync...
+2025-06-18T10:02:00.501Z [DEBUG] Sending GET https://api.example.com/metrics
+2025-06-18T10:02:00.711Z [ERROR] Connection refused
+2025-06-18T10:02:01.000Z [INFO] Trace ID: def456
