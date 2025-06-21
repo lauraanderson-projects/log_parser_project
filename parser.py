@@ -1,3 +1,4 @@
+
 import re
 from collections import defaultdict
 from datetime import datetime
@@ -20,7 +21,6 @@ def parse_timestamp(line):
 
 
 def analyze_log(file_path):
-    """Parse log file and group by Trace ID, including lines before ID appears."""
     current_trace_id = None
     buffer = []
 
@@ -29,6 +29,7 @@ def analyze_log(file_path):
             line = line.strip()
             buffer.append(line)
 
+            # Check for trace ID
             trace_match = trace_pattern.search(line)
             if trace_match:
                 current_trace_id = trace_match.group(1)
@@ -41,7 +42,7 @@ def analyze_log(file_path):
                         if ts:
                             retry_timestamps[current_trace_id].append(ts)
 
-                buffer = []  # Clear buffer after assignment
+                buffer = []
 
 
 def summarize():
