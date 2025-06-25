@@ -8,4 +8,10 @@ log_parser_project/
 ├── exporter.py # export_to_json
 ├── visualizer.py # (next) matplotlib charts
 └── tests/
-└── test_parser.py # pytest unit tests
+└ ── test_parser.py # pytest unit tests
+
+Dependencies:
+pip install pytest
+
+To run a test:
+python -m pytest

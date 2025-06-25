@@ -1,5 +1,5 @@
 import os
-from parser import analyze_log, summarize, log_by_trace, retry_timestamps, retry_pattern
+from log_parser import analyze_log, summarize, log_by_trace, retry_timestamps, retry_pattern
 from exporter import export_to_json
 from visualizer import plot_retry_intervals
 
