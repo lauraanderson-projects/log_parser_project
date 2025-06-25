@@ -13,5 +13,11 @@ log_parser_project/
 Dependencies:
 pip install pytest
 
-To run a test:
+To run a test_parser.py, from root:
 python -m pytest
+
+From root, cleanup pycache files:
+
+Below is commented out:
+
+<!--find . -name "__pycache__" -exec rm -r {} +-->
